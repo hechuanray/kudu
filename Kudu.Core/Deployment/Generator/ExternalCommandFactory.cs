@@ -74,7 +74,10 @@ namespace Kudu.Core.Deployment.Generator
             UpdateToDefaultIfNotSet(exe, WellKnownEnvironmentVariables.MSBuildPath, PathUtilityFactory.Instance.ResolveMSBuildPath(), logger);
             UpdateToDefaultIfNotSet(exe, WellKnownEnvironmentVariables.KuduSyncCommandKey, KuduSyncCommand, logger);
             UpdateToDefaultIfNotSet(exe, WellKnownEnvironmentVariables.NuGetExeCommandKey, NuGetExeCommand, logger);
+            
+            // NOTE: No longer used by deployment scripts on Linux. Kudu is not the best place to determine this on that platform.
             UpdateToDefaultIfNotSet(exe, WellKnownEnvironmentVariables.NpmJsPathKey, PathUtilityFactory.Instance.ResolveNpmJsPath(), logger);
+
             UpdateToDefaultIfNotSet(exe, WellKnownEnvironmentVariables.DnvmPath, DnvmPath, logger);
             UpdateToDefaultIfNotSet(exe, WellKnownEnvironmentVariables.GypMsvsVersion, Constants.VCVersion, logger);
             UpdateToDefaultIfNotSet(exe, WellKnownEnvironmentVariables.VCTargetsPath, PathUtilityFactory.Instance.ResolveVCTargetsPath(), logger);
